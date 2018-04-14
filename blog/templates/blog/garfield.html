@@ -1,0 +1,21 @@
+{% load staticfiles  %}
+<html>
+    <head>
+       
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/boostrap/3.3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="hikepic" >
+
+        </div>
+        
+            <div>
+               <p>published: {{ post.published_date }}</p>
+               <h1><a href="">{{ post.title }}</a></h1>
+               <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+    </body>
+</html>

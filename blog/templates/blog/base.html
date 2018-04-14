@@ -1,0 +1,27 @@
+{% load staticfiles  %}
+<html>
+    <head>
+       
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/boostrap/3.3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+
+    <body>
+    <div class="black">
+            <h1><a class="black" href="/">Up In the Whites</a></h1>
+        </div>
+
+        <div class="hikepic" >
+
+        </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</html>
