@@ -1,4 +1,5 @@
 .navbar {
+    max-width: 100%;
     overflow: hidden;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
@@ -77,20 +78,24 @@ a:link {
 }
 
 div.hikepic {
+    position: center;
+    max-width: 100%;
     margin: 25px auto;
-    height:500px;
+    height:auto;
     width: 60em;
     overflow: auto;
 }
 
 div.garfieldpic {
+    max-width: 100%;
     margin: 25px auto;
-    height:500px;
+    height:auto;
     width: 60em;
     overflow: auto;
 }
 
 div.post {
+    max-width: 100%;
     text-align: justify;
     margin: 0 auto;
     width: 60em;
@@ -105,6 +110,10 @@ div.black {
 }
 
 img {
+    margin: 0 auto;
+    width: 60em;
+    position: center;
     max-width: 100%;
     height: auto;
+    overflow: auto;
 }
