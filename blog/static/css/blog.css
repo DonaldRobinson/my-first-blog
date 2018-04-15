@@ -80,17 +80,14 @@ div.hikepic {
     margin: 25px auto;
     height:500px;
     width: 60em;
-    background: white url("/static/images/IMG_3647 (1).jpg") no-repeat;
-    background-position: center;
-    background-size: auto;
+    overflow: auto;
 }
 
 div.garfieldpic {
     margin: 25px auto;
     height:500px;
-    background: white url("/static/images/garfield1.jpg") no-repeat;
-    background-position: center;
-    background-size: auto;
+    width: 60em;
+    overflow: auto;
 }
 
 div.post {
@@ -105,4 +102,9 @@ div.black {
     margin: 0 auto;
     width: 60em;
 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
