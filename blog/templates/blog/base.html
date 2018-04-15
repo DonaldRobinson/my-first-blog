@@ -23,7 +23,7 @@
 
             <div class="dropdown-content">
                 {% for post in posts %}
-                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title}}</a></h1>
+                    <h1><a onclick="" href="{% url 'post_detail' pk=post.pk %}">{{ post.title}}</a></h1>
                 {% endfor %}
             </div>
         </div>
