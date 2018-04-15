@@ -11,11 +11,26 @@
     <body>
     <div class="black">
             <h1><a class="black" href="/">Up In the Whites</a></h1>
-        </div>
+    </div>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <div class="dropdown">
+            <button class="dropbtn">Hikes
+                <i class="fa fa-caret-down"></i>
+            </button>
 
-        <div class="hikepic" >
-
+            <div class="dropdown-content">
+                {% for post in posts %}
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title}}</a></h1>
+                {% endfor %}
+            </div>
         </div>
+    </div>
+
+       <!-- <div class="hikepic" >
+
+        </div>-->
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
