@@ -1,21 +1,234 @@
 {% load staticfiles  %}
-<html>
-    <head>
-       
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/boostrap/3.3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        <div class="hikepic" >
 
-        </div>
-        
-            <div>
-               <p>published: {{ post.published_date }}</p>
-               <h1><a href="">{{ post.title }}</a></h1>
-               <p>{{ post.text|linebreaksbr }}</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+
+.row {
+    content: "";
+    display: table;
+    margin: 0 auto;
+    width: 61em;
+}
+
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+    margin:0 auto;
+    width: 60em
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.navbar {
+    max-width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    width: 60em;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+h1 a {
+    color: darkgreen;
+}
+
+h1 a.black {
+    color: black;
+    text-align: justify;
+    margin: 0 auto;
+    width: 60em;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+div.post {
+    max-width: 100%;
+    text-align: justify;
+    margin: 0 auto;
+    width: 60em;
+
+}
+
+div.black {
+    text-align: justify;
+    margin: 0 auto;
+    width: 60em;
+
+}
+
+</style>
+</head>
+<body>
+<div class="black">
+            <h1><a class="black" href="/">Up In the Whites</a></h1>
+    </div>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="#news">Trails</a>
+        <div class="dropdown">
+            <button onclick="" class="dropbtn">Hikes
+                <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-content">
+                {% for post in posts %}
+                    <h1><a onclick="" href="{% url 'post_detail' pk=post.pk %}">{{ post.title}}</a></h1>
+                {% endfor %}
             </div>
-    </body>
+        </div>
+    </div>
+
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img src="{% static 'images/welchdickey1.JPG'%}" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{% static 'images/welchdickey2.JPG'%}" alt="Fjords" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{% static 'images/welchdickey3.JPG'%}" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{% static 'images/welchdickey1.JPG'%}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
 </html>
+

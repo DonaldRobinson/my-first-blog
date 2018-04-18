@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+   <!-- <div class="garfieldpic" >
+            <img src="{% static 'images/welchdickey1.JPG' %}"/>
+      
+    </div>-->
+
+    <div class="garfieldpic">
+           
+            <img src="{% static 'images/welchdickey1.JPG' %}" />
+            <img src="{% static 'images/welchdickey2.JPG' %}" />
+            <img src="{% static 'images/welchdickey3.JPG' %}" />
+            <img src="{% static 'images/welchdickey4.JPG' %}" />
+    </div>
+
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+{% endblock %}
