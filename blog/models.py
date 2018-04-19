@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from PIL import Image, ImageFilter
 
 
 class Post(models.Model):
