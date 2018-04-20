@@ -1,3 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    margin: 0;
+    font-family: Arial;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+
+    width: 25%;
+    padding: 0px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+
+.row {
+    content: "";
+    display: table;
+    margin: 0 auto;
+    width: 60em;
+    max-width: 100%;
+}
+
+
+/* The expanding image container */
+.container {
+    top: -5px;
+    position: relative;
+    margin:0 auto;
+    display: block;
+    width: 60em;
+    max-width: 100%;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
 .navbar {
     max-width: 100%;
     overflow: hidden;
@@ -5,6 +78,7 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     width: 60em;
+
 }
 
 .navbar a {
@@ -14,15 +88,17 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
 }
 
 .dropdown {
     float: left;
     overflow: hidden;
+
 }
 
 .dropdown .dropbtn {
-    font-size: 16px;    
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
@@ -30,6 +106,7 @@
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
@@ -77,83 +154,8 @@ a:link {
     text-decoration: none;
 }
 
-div.hikepic {
-    position: center;
-    max-width: 100%;
-    margin: 25px auto;
-    height:auto;
-    width: 60em;
-    overflow: auto;
-}
-
-<!--div.garfieldpic {
-    max-width: 100%;
-    margin: 25px auto;
-    height:auto;
-    width: 60em;
-    overflow: auto;
-}-->
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial;
-}
-
-/* The grid: Four equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
-}
-
-/* Style the images inside the grid */
-.column img {
-    opacity: 0.8; 
-    cursor: pointer; 
-}
-
-.column img:hover {
-    opacity: 1;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* The expanding image container */
-.container {
-    position: relative;
-    display: none;
-}
-
-/* Expanding image text */
-#imgtext {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: white;
-    font-size: 20px;
-}
-
-/* Closable button inside the expanded image */
-.closebtn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-    font-size: 35px;
-    cursor: pointer;
-}
-
 div.post {
-    max-width: 100%;
+    max-width: 95%;
     text-align: justify;
     margin: 0 auto;
     width: 60em;
@@ -165,13 +167,5 @@ div.black {
     margin: 0 auto;
     width: 60em;
 
-}
 
-<!--img {
-    margin: 0 auto;
-    width: 60em;
-    position: center;
-    max-width: 100%;
-    height: auto;
-    overflow: auto;
-}-->
+}

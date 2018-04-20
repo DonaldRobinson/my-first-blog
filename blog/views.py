@@ -11,7 +11,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     posts =Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     if (post.pk == 1):
-        return render(request, 'blog/post_garfield.html', {'post': post, 'posts': posts})    
+        return render(request, 'blog/garfield_home.html', {'post': post, 'posts': posts})    
 
     if (post.pk == 2):
         return render(request, 'blog/garfield.html', {'post': post, 'posts': posts})    
